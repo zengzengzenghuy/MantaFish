@@ -5,7 +5,7 @@
 // will compile your contracts, add the Hardhat Runtime Environment's members to the
 // global scope, and execute the script.
 const hre = require("hardhat");
-
+var fs = require("fs");
 async function main() {
 
 
@@ -28,6 +28,18 @@ async function main() {
    AskAndEarn contract = ${askandearn.address}\n
    `
   );
+  var contractAddress = {
+    "BIT" : bit.address,
+    "NFT" : nft.address,
+    "AskAndEarn" : askandearn.address
+  };
+  fs.writeFile("./contractList.json",JSON.stringify(contractAddress,null,4),(err)=>{
+    if(err){
+        console.error(err);
+        return;
+    };
+    console.log("File has been created")
+  })
 }
 
 // We recommend this pattern to be able to use async/await everywhere

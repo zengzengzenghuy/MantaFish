@@ -16,6 +16,7 @@ contract AskAndEarn is Ownable {
   mapping(address=>uint256)public userContribution;
   mapping(uint256=>address)public userIndex;
   mapping(uint256=>address)public winnerHistory;
+  address [] winnerList;
 
   constructor(address _bit,address _nft){
       BIT = BitToken(_bit);
@@ -63,6 +64,13 @@ contract AskAndEarn is Ownable {
         return true;
     }
 
+    function winnerlist() public returns(address [] memory){
+     
+        for (uint256 i=0;i<currentRound;i+=1){
+            winnerList.push(winnerHistory[i]);
+        }
+        return winnerList;
+    }
     function getPoolPrize() public view returns (uint256){
         uint256 allowanceFromOwner = BIT.allowance(owner(),address(this));
         return BIT.balanceOf(address(this))+ allowanceFromOwner;

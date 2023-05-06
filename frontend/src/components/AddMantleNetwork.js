@@ -53,6 +53,10 @@ const AddMantleNetwork = (props) => {
   }
   return (
     <>
+    <h1>Rule of the game</h1>
+    <p>1. To start and play, you have to deposit 10 BIT token on Mantle Network.
+      2. sjdpofj
+    </p>
     <button onClick={connectAccount}>Connect to Metamask</button>
     <p>Connected to {address}</p>  
     <br/>

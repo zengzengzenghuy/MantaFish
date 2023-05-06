@@ -1,22 +1,24 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
-
+import ChatManta from "./components/ChatManta";
 const Home = (props) => {
   const navigate = useNavigate();
 
   return (
     <>
-      <h1>Home Page</h1>
-      <p>Go to the contact page by using one of the following:</p>
+      <h1>Manta Fish</h1>
+      <p>Welcome to Manta Fish</p>
+      <p>I am a friendly fish that will guide you through the journey of learning Mantle Network</p>
       <hr />
 
-
-      <p>
-        <button onClick={() => navigate("/contact")}>Go to Contact</button>
-      </p>
-      <p>
-        <button onClick={() => navigate("/connectWallet")}>Connect Wallet</button>
-      </p>
+    <div style={{'display': 'flex','flex-direction':'row','justify-content':'space-evenly','gap':'20px'}}>    
+        <button onClick={() => navigate("/chatmanta")} style={{ width: "350px", height: "250px",  backgroundColor:"blue",fontSize:50}}>Chat with Manta</button>
+        <button onClick={() => navigate("/connectWallet")} style={{ width: "350px", height: "250px", backgroundColor: 'blue',fontSize:50}}>Maaaanta BIT</button>
+  </div>
+  <br/>
+  <b>If you want to ask me anything about Mantle Network, click 'Chat with Manta'</b>
+  <br/>
+  <b>If you want to have more interaction with me and stand a chance to win $BIT, click 'Maaaanta BIT' </b>
 
       {/* <p>
         <input
