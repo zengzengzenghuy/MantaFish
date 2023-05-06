@@ -1,5 +1,3 @@
-
-
 const Question = () =>{
     const Top10 = [
         "What is Mantle Network?",
