@@ -1,4 +1,12 @@
 const Question = () =>{
+  const QuestionStyle={
+    'flex-direction': 'column',
+    'width':'1000px',
+    'justify-content': 'flex-start',
+    'background-color': 'blue',
+    'fontSize' : '30px',
+    'border': '1px solid black'
+  }
     const Top10 = [
         "What is Mantle Network?",
         "How to deploy on Mantle Network?",
@@ -12,7 +20,7 @@ const Question = () =>{
         "How to estimate gas fee for L2 transaction?"
       ]
     const question = Top10.map((ques,index)=>
-      <p key={index}>{ques}</p>
+      <p key={index} style={QuestionStyle}>{ques}</p>
     )
     return <>{question}</>
 }

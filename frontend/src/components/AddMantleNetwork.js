@@ -1,9 +1,15 @@
 import React,{useState} from "react";
-import { useNavigate } from "react-router-dom";
+import { ethers } from 'ethers';
+import { useNavigate,Link } from "react-router-dom";
 import * as dotenv from 'dotenv';
+import Header from "./Header";
+import AAE_ABI from "../artifacts/contracts/AskAndEarn.sol/AskAndEarn.json";
+import BIT_ABI from "../artifacts/contracts/BitToken.sol/BitToken.json";
+
 dotenv.config();
 
-
+const provider = ethers.getDefaultProvider();
+//const provider = new ethers.providers.Web3Provider(window.ethereum);
 const AddMantleNetwork = (props) => {
   const navigate = useNavigate();
   const [address,setAddress] = useState("0x");
@@ -51,20 +57,96 @@ const AddMantleNetwork = (props) => {
     }
     
   }
+
+  async function getMantleFaucet(){
+    window.location.href= 'https://faucet.testnet.mantle.xyz/'
+  }
+
+  async function bridgeBITfromGoerli(){
+    window.location.href='https://bridge.testnet.mantle.xyz/'
+  }
+  async function depositBIT(){
+
+    const BITcontractAddr = "0x";
+    const AAEcontractAddr = "0x";
+    let bit= new ethers.Contract(BITcontractAddr,BIT_ABI.abi,provider);
+    let aae = new ethers.Contract(AAEcontractAddr,AAE_ABI.abi,provider);
+    //await bit.transfer(AAEcontractAddr,10);
+    let result = await aae.play(10);
+
+    console.log(result);
+  }
+
+  const buttonStyle = {
+    'width': '20%',
+    'height': '3rem',
+    'background-color': 'blue',
+    'fontSize' : '1rem',
+    'align-items': 'center',
+    'left' : '0',
+    'display': 'flex',
+    'flex-direction':'row',
+    'justify-content' :'center'
+  }
+  const stepStyle = {
+    'width': '75%',
+    'height': '4rem',
+    'background-color': '#8a2b06',
+    'fontSize' : '1rem',
+    'align-items': 'center',
+    'left' : '0',
+    'display': 'flex','flex-direction':'row',
+    'justify-content':'flex-start',
+    'gap' : '20px',
+    'margin-top': '20px',
+    'margin-bottom': '20px',
+    'margin-right': '20px',
+    'margin-left': '20px',
+    'padding-left': '50px',
+  }
   return (
     <>
-    <h1>Rule of the game</h1>
-    <p>1. To start and play, you have to deposit 10 BIT token on Mantle Network.
-      2. sjdpofj
-    </p>
-    <button onClick={connectAccount}>Connect to Metamask</button>
-    <p>Connected to {address}</p>  
-    <br/>
-    <button onClick={addMantleNetwork}>Add Mantle Network</button>
-    <br/>
-    <button onClick={() => navigate('/')}>Go Back to Home Page</button>
-    <br/>
-    <button onClick={() => navigate('/askandearn')}>Go to Play</button>
+    <Header/>
+    <h1>Before you start the game</h1>
+    <div style={stepStyle}>
+
+      <h3>Step 1:</h3>
+      <p>To start and play, you have to deposit 10 BIT token on Mantle Network.</p>
+
+ 
+         <button style={buttonStyle} onClick={connectAccount}>Connect to Metamask</button>
+      <p>Connected to {address}</p>  
+
+    </div>
+
+    <div style={stepStyle}>
+      <h3>Step 2:</h3>
+      <p>Add Mantle Network to your Metamask</p>
+      <button style={buttonStyle} onClick={addMantleNetwork}>Add Mantle Network</button>
+    </div>
+
+    <div style={stepStyle}>
+      <h3>Step 3:</h3>
+      <p>Get Mantle Testnet Faucet on Goerli</p>
+      <button style={buttonStyle} onClick={getMantleFaucet} >Get $BIT</button>
+    </div>
+
+    <div style={stepStyle}>
+      <h3>Step 4:</h3>
+      <p>Bridge your $BIT to Mantle Testnet</p>
+      <button style={buttonStyle} onClick={bridgeBITfromGoerli} >Bridge $BIT</button>
+    </div>
+    
+    <div style={stepStyle}>
+      <h3>Step 5:</h3>
+      <p>Deposit 10 $BIT to play</p>
+      <button style={buttonStyle} onClick={depositBIT} >Play</button>
+    </div>
+    <div style={{  'display': 'flex','flex-direction':'row',
+    'justify-content':'center',  'gap': '50px'}}>    <button onClick={() => navigate('/')}>Go Back to Home Page</button>
+  
+    <button onClick={() => navigate('/askandearn')}>Go to Play</button></div>
+
     </>
   );
 };

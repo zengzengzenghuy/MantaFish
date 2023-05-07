@@ -1,16 +1,18 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
 import ChatManta from "./components/ChatManta";
+import Header from "./components/Header";
 const Home = (props) => {
   const navigate = useNavigate();
 
   return (
     <>
+    <Header/>
       <h1>Manta Fish</h1>
       <p>Welcome to Manta Fish</p>
       <p>I am a friendly fish that will guide you through the journey of learning Mantle Network</p>
       <hr />
-
+    {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */}
     <div style={{'display': 'flex','flex-direction':'row','justify-content':'space-evenly','gap':'20px'}}>    
         <button onClick={() => navigate("/chatmanta")} style={{ width: "350px", height: "250px",  backgroundColor:"blue",fontSize:50}}>Chat with Manta</button>
         <button onClick={() => navigate("/connectWallet")} style={{ width: "350px", height: "250px", backgroundColor: 'blue',fontSize:50}}>Maaaanta BIT</button>
