@@ -34,12 +34,14 @@ npm i
 ```
 
 Configure the private key in `hardhat.config.js` and deploy to Mantle Network.
+
 ```bash
 npx hardhat run scripts/deployAll.js --network mantle-testnet
 ```
 
 Run test
-``bash
+
+```bash
 npx hardhat test
 ```
 
