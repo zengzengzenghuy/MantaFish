@@ -21,7 +21,7 @@ const ChatManta = (props) => {
         style={{darkMode:true, accentColor: "#8559F4"}}
         placeholder="Ask me about Mantle Network"
         dialogPlaceholder=""
-        anon_key={process.env.ANON_KEY}
+        anon_key={"9eab6b13-29e4-4b4e-bb28-4752c5b7b96e"}
         />
       </div>
       <br/>

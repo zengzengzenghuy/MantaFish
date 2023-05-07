@@ -14,8 +14,8 @@ const Home = (props) => {
       <hr />
     {/* https://css-tricks.com/snippets/css/a-guide-to-flexbox/ */}
     <div style={{'display': 'flex','flex-direction':'row','justify-content':'space-evenly','gap':'20px'}}>    
-        <button onClick={() => navigate("/chatmanta")} style={{ width: "350px", height: "250px",  backgroundColor:"blue",fontSize:50}}>Chat with Manta</button>
-        <button onClick={() => navigate("/connectWallet")} style={{ width: "350px", height: "250px", backgroundColor: 'blue',fontSize:50}}>Maaaanta BIT</button>
+        <button onClick={() => navigate("/chatmanta")} style={{ width: "350px", height: "250px",  backgroundColor:"blue",fontSize:50,'border-radius': '25px',}}>Chat with Manta</button>
+        <button onClick={() => navigate("/connectWallet")} style={{ width: "350px", height: "250px", backgroundColor: 'blue',fontSize:50,'border-radius': '25px',}}>Maaaanta BIT</button>
   </div>
   <br/>
   <b>If you want to ask me anything about Mantle Network, click 'Chat with Manta'</b>

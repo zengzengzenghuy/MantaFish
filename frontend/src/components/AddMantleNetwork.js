@@ -86,7 +86,8 @@ const AddMantleNetwork = (props) => {
     'left' : '0',
     'display': 'flex',
     'flex-direction':'row',
-    'justify-content' :'center'
+    'justify-content' :'center',
+    'border-radius': '25px',
   }
   const stepStyle = {
     'width': '75%',
@@ -103,6 +104,7 @@ const AddMantleNetwork = (props) => {
     'margin-right': '20px',
     'margin-left': '20px',
     'padding-left': '50px',
+    'border-radius': '25px',
   }
   return (
     <>
