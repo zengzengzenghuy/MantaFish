@@ -67,8 +67,8 @@ const AddMantleNetwork = (props) => {
   }
   async function depositBIT(){
 
-    const BITcontractAddr = "0x";
-    const AAEcontractAddr = "0x";
+    const BITcontractAddr = "0xab6f51b61AdF8B542a569E94e1cAA233DD216862";
+    const AAEcontractAddr = "0xcF7E187Ed1090B9CE8E4a7266B5309d839E85648";
     let bit= new ethers.Contract(BITcontractAddr,BIT_ABI.abi,provider);
     let aae = new ethers.Contract(AAEcontractAddr,AAE_ABI.abi,provider);
     //await bit.transfer(AAEcontractAddr,10);

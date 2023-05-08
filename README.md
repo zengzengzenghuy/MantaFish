@@ -45,6 +45,7 @@ Run test
 npx hardhat test
 ```
 
-* The contract has not been tested at the moment.
-* Due to bridge issue, I cannot bridge my $BIT to Mantle, so I'm not able to deploy the contract at the moment.
-
+### Contract address
+* Test Bit token: [0xab6f51b61AdF8B542a569E94e1cAA233DD216862](https://explorer.testnet.mantle.xyz/address/0xab6f51b61AdF8B542a569E94e1cAA233DD216862)
+* ManNFT: [0x22F1fc71A505c0b2bf4D5075801cc5E0ec84B09e](https://explorer.testnet.mantle.xyz/address/0x22F1fc71A505c0b2bf4D5075801cc5E0ec84B09e)
+* AskAndEarn: [0xcF7E187Ed1090B9CE8E4a7266B5309d839E85648](https://explorer.testnet.mantle.xyz/address/0xcF7E187Ed1090B9CE8E4a7266B5309d839E85648)
