@@ -31,6 +31,18 @@ contract AskAndEarn is Ownable {
       prize=_newPrize;
   }
 
+  function playTest() public returns (bool){
+
+            if(userContribution[msg.sender]==0){
+            //ManNFT.safeMint(msg.sender,totalPlayer);
+            userIndex[totalPlayer] = msg.sender;
+            totalPlayer+=1;
+
+        }
+       // BIT.transferFrom(msg.sender,address(this),minTokenperPlay);
+        userContribution[msg.sender]+=minTokenperPlay;
+        return true;
+  }
     function play(uint256 _paidAmount)public returns (bool){
         require(_paidAmount>=minTokenperPlay,"Not sufficient amount to play!");
         require(msg.sender!=address(0),"Invalid address");
@@ -44,6 +56,7 @@ contract AskAndEarn is Ownable {
         userContribution[msg.sender]+=_paidAmount;
         return true;
     }
+
 
     function LuckyDraw(bool _paidByOwner) external onlyOwner returns(bool){
        uint256 winner_index = uint256(

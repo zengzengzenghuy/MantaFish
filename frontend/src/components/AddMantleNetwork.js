@@ -8,12 +8,14 @@ import BIT_ABI from "../artifacts/contracts/BitToken.sol/BitToken.json";
 
 dotenv.config();
 
-const provider = ethers.getDefaultProvider();
+const provider = new ethers.providers.Web3Provider(window.ethereum);
+const signer = provider.getSigner();
 //const provider = new ethers.providers.Web3Provider(window.ethereum);
 const AddMantleNetwork = (props) => {
   const navigate = useNavigate();
   const [address,setAddress] = useState("0x");
 //   const [balance,setBalance] = useState();
+
 
 
   async function connectAccount(){
@@ -66,13 +68,17 @@ const AddMantleNetwork = (props) => {
     window.location.href='https://bridge.testnet.mantle.xyz/'
   }
   async function depositBIT(){
+    await connectAccount();
 
     const BITcontractAddr = "0xab6f51b61AdF8B542a569E94e1cAA233DD216862";
-    const AAEcontractAddr = "0xcF7E187Ed1090B9CE8E4a7266B5309d839E85648";
-    let bit= new ethers.Contract(BITcontractAddr,BIT_ABI.abi,provider);
-    let aae = new ethers.Contract(AAEcontractAddr,AAE_ABI.abi,provider);
+    // const AAEcontractAddr = "0xcF7E187Ed1090B9CE8E4a7266B5309d839E85648";
+    const AAEcontractAddr = "0x520185210Aa645220a49afD9C33d28b73494e14d"
+    let bit= new ethers.Contract(BITcontractAddr,BIT_ABI.abi,provider.getSigner());
+    let aae = new ethers.Contract(AAEcontractAddr,AAE_ABI.abi,provider.getSigner());
     //await bit.transfer(AAEcontractAddr,10);
-    let result = await aae.play(10);
+    let result = await aae.playTest();
+    //let result = await bit.mint("0x5f9e06Fd34A67637315e7dCe6866A4D3783E014E",100);
+    //let result = await bit.balanceOf("0x5f9e06Fd34A67637315e7dCe6866A4D3783E014E");
 
     console.log(result);
   }

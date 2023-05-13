@@ -48,4 +48,4 @@ npx hardhat test
 ### Contract address
 * Test Bit token: [0xab6f51b61AdF8B542a569E94e1cAA233DD216862](https://explorer.testnet.mantle.xyz/address/0xab6f51b61AdF8B542a569E94e1cAA233DD216862)
 * ManNFT: [0x22F1fc71A505c0b2bf4D5075801cc5E0ec84B09e](https://explorer.testnet.mantle.xyz/address/0x22F1fc71A505c0b2bf4D5075801cc5E0ec84B09e)
-* AskAndEarn: [0xcF7E187Ed1090B9CE8E4a7266B5309d839E85648](https://explorer.testnet.mantle.xyz/address/0xcF7E187Ed1090B9CE8E4a7266B5309d839E85648)
+* AskAndEarn: [0x520185210Aa645220a49afD9C33d28b73494e14d](https://explorer.testnet.mantle.xyz/address/0x520185210Aa645220a49afD9C33d28b73494e14d)
