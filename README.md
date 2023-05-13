@@ -13,6 +13,8 @@ There are two modes:
 3. AI: Leverage the AI tool built by [Mendable AI](https://www.mendable.ai/).
 4. Social Media: Users can share tweets about their learning by built in tweet button.
 
+Check out `/Demo` to see how it works.
+
 # For Developer
 ## Frontend
 Install and Run
